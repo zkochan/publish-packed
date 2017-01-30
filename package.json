@@ -1,0 +1,37 @@
+{
+  "name": "publish-packed",
+  "version": "0.0.0",
+  "description": "Publish your package together with its dependencies",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "prepublish": "npm run tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkochan/publish-packed.git"
+  },
+  "author": "Zoltan Kochan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zkochan/publish-packed/issues"
+  },
+  "homepage": "https://github.com/zkochan/publish-packed#readme",
+  "dependencies": {
+    "@types/load-json-file": "^2.0.5",
+    "@types/mz": "^0.0.30",
+    "execa": "^0.6.0",
+    "load-json-file": "^2.0.0",
+    "mz": "^2.6.0",
+    "rimraf-then": "^1.0.1",
+    "write-json-file": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.1.5"
+  }
+}
