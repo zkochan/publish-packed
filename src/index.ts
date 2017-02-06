@@ -3,7 +3,7 @@ import path = require('path')
 import execa = require('execa')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
-import loadJsonFile = require('load-json-file')
+import readPkg = require('read-pkg')
 
 export default async function (pkgDir: string, opts?: {tag?: string}) {
   opts = opts || {}
@@ -36,7 +36,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
 }
 
 async function runPrepublishScript (pkgDir: string) {
-  const pkgJson = await loadJsonFile(path.join(pkgDir, 'package.json'))
+  const pkgJson = await readPkg(pkgDir)
 
   if (!pkgJson['scripts'] || !pkgJson['scripts']['prepublish']) return
 

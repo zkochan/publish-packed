@@ -1,10 +1,9 @@
-import loadJsonFile = require('load-json-file')
-import writeJsonFile = require('write-json-file')
+import readPkg = require('read-pkg')
+import writePkg = require('write-pkg')
 import path = require('path')
 
 export default async (pkgDir: string, keysMap: Object) => {
-  const pkgPath = path.join(pkgDir, 'package.json')
-  const pkgJSON = await loadJsonFile(pkgPath)
+  const pkgJSON = await readPkg(pkgDir)
 
   const newPkgJSON = {}
   const keys = Object.keys(pkgJSON)
@@ -16,5 +15,5 @@ export default async (pkgDir: string, keysMap: Object) => {
     newPkgJSON[keys[i]] = pkgJSON[keys[i]]
   }
 
-  await writeJsonFile(pkgPath, newPkgJSON)
+  await writePkg(pkgDir, newPkgJSON)
 }
