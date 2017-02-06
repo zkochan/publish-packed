@@ -3,6 +3,7 @@ import path = require('path')
 import execa = require('execa')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
+import loadJsonFile = require('load-json-file')
 
 export default async function (pkgDir: string, opts?: {tag?: string}) {
   opts = opts || {}
@@ -11,6 +12,8 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   const modules = path.join(pkgDir, 'node_modules')
   const tmpModules = path.join(pkgDir, 'tmp_node_modules')
   let publishedModules: string | null = null
+
+  await runPrepublishScript(pkgDir)
 
   try {
     await renameIfExists(modules, tmpModules)
@@ -30,6 +33,14 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
 
     if (publishedModules) await rimraf(publishedModules)
   }
+}
+
+async function runPrepublishScript (pkgDir: string) {
+  const pkgJson = await loadJsonFile(path.join(pkgDir, 'package.json'))
+
+  if (!pkgJson['scripts'] || !pkgJson['scripts']['prepublish']) return
+
+  await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})  
 }
 
 async function renameIfExists (name: string, newName: string) {
