@@ -4,7 +4,6 @@ import path = require('path')
 
 export default async (pkgDir: string, keysMap: Object) => {
   const pkgJSON = await readPkg(pkgDir)
-
   const newPkgJSON = {}
   const keys = Object.keys(pkgJSON)
   for (let i = 0; i < keys.length; i++) {
