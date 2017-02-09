@@ -11,6 +11,7 @@
   "preferGlobal": true,
   "scripts": {
     "tsc": "tsc",
+    "test": "exit 0",
     "prepublish": "npm run tsc"
   },
   "repository": {
