@@ -3,27 +3,44 @@ import path = require('path')
 import execa = require('execa')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
+import readPkg = require('read-pkg')
 
-export default async function (pkgDir: string) {
+export default async function (pkgDir: string, opts?: {tag?: string}) {
+  opts = opts || {}
+  const tag = opts.tag || 'latest'
+
   const modules = path.join(pkgDir, 'node_modules')
   const tmpModules = path.join(pkgDir, 'tmp_node_modules')
+  let publishedModules: string | null = null
 
-  await renameIfExists(modules, tmpModules)
+  await runPrepublishScript(pkgDir)
 
-  await execa('npm', ['install', '--production', '--ignore-scripts'], {cwd: pkgDir})
-  
-  const publishedModules = path.join(pkgDir, 'lib', 'node_modules')
-  await fs.rename(modules, publishedModules)
+  try {
+    await renameIfExists(modules, tmpModules)
 
-  await hideDeps(pkgDir)
+    await execa('npm', ['install', '--production', '--ignore-scripts'], {cwd: pkgDir, stdio: 'inherit'})
 
-  await execa('npm', ['publish'], {cwd: pkgDir})
+    publishedModules = path.join(pkgDir, 'lib', 'node_modules')
+    await fs.rename(modules, publishedModules)
 
-  await unhideDeps(pkgDir)
+    await hideDeps(pkgDir)
 
-  await renameIfExists(tmpModules, modules)
+    await execa('npm', ['publish', '--tag', tag], {cwd: pkgDir, stdio: 'inherit'})
+  } finally {
+    await unhideDeps(pkgDir)
 
-  await rimraf(publishedModules)
+    await renameIfExists(tmpModules, modules)
+
+    if (publishedModules) await rimraf(publishedModules)
+  }
+}
+
+async function runPrepublishScript (pkgDir: string) {
+  const pkgJson = await readPkg(pkgDir)
+
+  if (!pkgJson['scripts'] || !pkgJson['scripts']['prepublish']) return
+
+  await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})  
 }
 
 async function renameIfExists (name: string, newName: string) {

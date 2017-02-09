@@ -1,4 +1,9 @@
-declare module 'write-json-file' {
+declare module 'write-pkg' {
+  const anything: any;
+  export = anything;
+}
+
+declare module 'read-pkg' {
   const anything: any;
   export = anything;
 }
