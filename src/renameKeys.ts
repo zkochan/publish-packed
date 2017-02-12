@@ -3,7 +3,7 @@ import writePkg = require('write-pkg')
 import path = require('path')
 
 export default async (pkgDir: string, keysMap: Object) => {
-  const pkgJSON = await readPkg(pkgDir)
+  const pkgJSON = await readPkg(pkgDir, {normalize: false})
 
   const newPkgJSON = {}
   const keys = Object.keys(pkgJSON)
