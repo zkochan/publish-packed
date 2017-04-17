@@ -30,7 +30,7 @@
     "mz": "^2.6.0",
     "read-pkg": "^2.0.0",
     "rimraf-then": "^1.0.1",
-    "write-pkg": "^2.0.0"
+    "write-pkg": "^3.0.1"
   },
   "devDependencies": {
     "typescript": "^2.2.1"
