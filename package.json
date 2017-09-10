@@ -1,6 +1,6 @@
 {
   "name": "publish-packed",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Publishes a package together with its dependencies",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
