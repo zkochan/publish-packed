@@ -25,7 +25,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
 
     await hideDeps(pkgDir)
 
-    await execa('npm', ['publish', '--tag', tag], {cwd: pkgDir, stdio: 'inherit'})
+    await execa('npm', ['publish', '--tag', tag, '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
   } finally {
     await unhideDeps(pkgDir)
 
