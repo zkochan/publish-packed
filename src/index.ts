@@ -38,9 +38,15 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
 async function runPrepublishScript (pkgDir: string) {
   const pkgJson = await readPkg(pkgDir)
 
-  if (!pkgJson['scripts'] || !pkgJson['scripts']['prepublish']) return
+  if (!pkgJson['scripts']) return
+    
+  if (pkgJson['scripts']['prepublish']) {
+    await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})
+  }
 
-  await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})  
+  if (pkgJson['scripts']['prepublishOnly']) {
+    await execa('npm', ['run', 'prepublishOnly'], {cwd: pkgDir, stdio: 'inherit'})
+  }
 }
 
 async function renameIfExists (name: string, newName: string) {
