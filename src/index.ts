@@ -18,14 +18,14 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   try {
     await renameIfExists(modules, tmpModules)
 
-    await execa('npm', ['install', '--production', '--ignore-scripts'], {cwd: pkgDir, stdio: 'inherit'})
+    await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
 
     publishedModules = path.join(pkgDir, 'lib', 'node_modules')
     await fs.rename(modules, publishedModules)
 
     await hideDeps(pkgDir)
 
-    await execa('npm', ['publish', '--tag', tag, '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
+    await execa('npm', ['publish', '--tag', tag], {cwd: pkgDir, stdio: 'inherit'})
   } finally {
     await unhideDeps(pkgDir)
 
@@ -39,7 +39,7 @@ async function runPrepublishScript (pkgDir: string) {
   const pkgJson = await readPkg(pkgDir)
 
   if (!pkgJson['scripts']) return
-    
+
   if (pkgJson['scripts']['prepublish']) {
     await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})
   }
