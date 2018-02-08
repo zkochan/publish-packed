@@ -4,6 +4,7 @@ import execa = require('execa')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
 import readPkg = require('read-pkg')
+import renameOverwrite = require('rename-overwrite')
 
 export default async function (pkgDir: string, opts?: {tag?: string}) {
   opts = opts || {}
@@ -16,7 +17,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   await runPrepublishScript(pkgDir)
 
   try {
-    await renameIfExists(modules, tmpModules)
+    await renameOverwrite(modules, tmpModules)
 
     await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
 
@@ -29,7 +30,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   } finally {
     await unhideDeps(pkgDir)
 
-    await renameIfExists(tmpModules, modules)
+    await renameOverwrite(tmpModules, modules)
 
     if (publishedModules) await rimraf(publishedModules)
   }
@@ -46,14 +47,6 @@ async function runPrepublishScript (pkgDir: string) {
 
   if (pkgJson['scripts']['prepublishOnly']) {
     await execa('npm', ['run', 'prepublishOnly'], {cwd: pkgDir, stdio: 'inherit'})
-  }
-}
-
-async function renameIfExists (name: string, newName: string) {
-  try {
-    await fs.rename(name, newName)
-  } catch (err) {
-    if (err.code !== 'ENOENT') throw err
   }
 }
 

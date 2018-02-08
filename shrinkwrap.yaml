@@ -3,6 +3,7 @@ dependencies:
   execa: 0.9.0
   mz: 2.7.0
   read-pkg: 3.0.0
+  rename-overwrite: 1.0.2
   rimraf-then: 1.0.1
   write-pkg: 3.1.0
 devDependencies:
@@ -51,6 +52,23 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
+  /define-properties/1.1.2:
+    dependencies:
+      foreach: 2.0.5
+      object-keys: 1.0.11
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-g6c/L+pWmJj7c3GTyPhzyvbUXJQ=
+  /delay/2.0.0:
+    dependencies:
+      p-defer: 1.0.0
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-kRLq3APk7H4AKXM3iW8nO72R+uU=
   /detect-indent/5.0.0:
     dev: false
     engines:
@@ -63,6 +81,28 @@ packages:
     dev: false
     resolution:
       integrity: sha1-+FWobOYa3E6GIcPNoh56dhLDqNw=
+  /es-abstract/1.10.0:
+    dependencies:
+      es-to-primitive: 1.1.1
+      function-bind: 1.1.1
+      has: 1.0.1
+      is-callable: 1.1.3
+      is-regex: 1.0.4
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-/uh/DhdqIOSkAWifU+8nG78vlQxdLckUdI/sPgy0VhuXi2qJ7T8czBmqIYtLQVpCIFYafChnsRsB5pyb1JdmCQ==
+  /es-to-primitive/1.1.1:
+    dependencies:
+      is-callable: 1.1.3
+      is-date-object: 1.0.1
+      is-symbol: 1.0.1
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-RTVSSKiJeQNLZ5Lhm7gfK3l13Q0=
   /execa/0.9.0:
     dependencies:
       cross-spawn: 5.1.0
@@ -77,10 +117,18 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-BbUMBiX4hqiHZUA5+JujIjNb6TyAlp2D5KLheMjMluwOuzcnylDL4AxZYLLn1n2AGB49eSWwyKvvEQoRpnAtmA==
+  /foreach/2.0.5:
+    dev: false
+    resolution:
+      integrity: sha1-C+4AUBiusmDQo6865ljdATbsG5k=
   /fs.realpath/1.0.0:
     dev: false
     resolution:
       integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+  /function-bind/1.1.1:
+    dev: false
+    resolution:
+      integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
   /get-stream/3.0.0:
     dev: false
     engines:
@@ -104,6 +152,14 @@ packages:
       node: '>=0.4.0'
     resolution:
       integrity: sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
+  /has/1.0.1:
+    dependencies:
+      function-bind: 1.1.1
+    dev: false
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-hGFzP1OLCDfJNh45qauelwTcLyg=
   /hosted-git-info/2.5.0:
     dev: false
     resolution:
@@ -137,18 +193,44 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-VAVy0096wxGfj3bDDLwbHgN6/74=
+  /is-callable/1.1.3:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-hut1OSgF3cM69xySoO7fdO52BLI=
+  /is-date-object/1.0.1:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-mqIOtq7rv/d/vTPnTKAbM1gdOhY=
   /is-plain-obj/1.1.0:
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-caUMhCnfync8kqOQpKA7OfzVHT4=
+  /is-regex/1.0.4:
+    dependencies:
+      has: 1.0.1
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-VRdIm1RwkbCTDglWVM7SXul+lJE=
   /is-stream/1.1.0:
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
+  /is-symbol/1.0.1:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-PMWfAAJRlLarLjjbrmaJJWtmBXI=
   /isexe/2.0.0:
     dev: false
     resolution:
@@ -220,12 +302,33 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+  /object-keys/1.0.11:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-xUYBd4rVYPEULODgG8yotW0TQm0=
+  /object.getownpropertydescriptors/2.0.3:
+    dependencies:
+      define-properties: 1.1.2
+      es-abstract: 1.10.0
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-h1jIRvW0B62rDyNuCYbxSwUcqhY=
   /once/1.4.0:
     dependencies:
       wrappy: 1.0.2
     dev: false
     resolution:
       integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
+  /p-defer/1.0.0:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-n26xgvbJqozXQwBKfU+WsZaw+ww=
   /p-finally/1.0.0:
     dev: false
     engines:
@@ -281,6 +384,17 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-nLxoaXj+5l0WwA4rGcI3/Pbjg4k=
+  /rename-overwrite/1.0.2:
+    dependencies:
+      delay: 2.0.0
+      graceful-fs: 4.1.11
+      rimraf: 2.6.2
+      util.promisify: 1.0.0
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-H7bHUSiUG9xIAtGAoP7MrpQYGxpkcnIWuDBlMWXdYra+NvkL8kQnjnLlseuSdRFRgwxs61So+qsX8AHQaWCTmg==
   /rimraf-then/1.0.1:
     dependencies:
       any-promise: 1.3.0
@@ -370,6 +484,13 @@ packages:
       node: '>=4.2.0'
     resolution:
       integrity: sha512-bqB1yS6o9TNA9ZC/MJxM0FZzPnZdtHj0xWK/IZ5khzVqdpGul/R/EIiHRgFXlwTD7PSIaYVnGKq1QgMCu2mnqw==
+  /util.promisify/1.0.0:
+    dependencies:
+      define-properties: 1.1.2
+      object.getownpropertydescriptors: 2.0.3
+    dev: false
+    resolution:
+      integrity: sha512-i+6qA2MPhvoKLuxnJNpXAGhg7HphQOSUq2LKMZD0m15EiskXUkMvKdF4Uui0WYeCUGea+o2cw/ZuwehtfsrNkA==
   /validate-npm-package-license/3.0.1:
     dependencies:
       spdx-correct: 1.0.2
@@ -429,6 +550,7 @@ specifiers:
   execa: ^0.9.0
   mz: ^2.6.0
   read-pkg: ^3.0.0
+  rename-overwrite: ^1.0.2
   rimraf-then: ^1.0.1
   typescript: ^2.2.1
   write-pkg: ^3.0.1

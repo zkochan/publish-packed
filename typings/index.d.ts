@@ -17,3 +17,8 @@ declare module 'rimraf-then' {
   const anything: any;
   export = anything;
 }
+
+declare module 'rename-overwrite' {
+  const anything: any;
+  export = anything;
+}
