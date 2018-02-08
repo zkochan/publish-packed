@@ -22,7 +22,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
     await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
 
     publishedModules = path.join(pkgDir, 'lib', 'node_modules')
-    await fs.rename(modules, publishedModules)
+    await renameOverwrite(modules, publishedModules)
 
     await hideDeps(pkgDir)
 
