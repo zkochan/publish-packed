@@ -9,6 +9,9 @@
   ],
   "bin": "lib/cli.js",
   "preferGlobal": true,
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
     "tsc": "tsc",
     "test": "exit 0",
