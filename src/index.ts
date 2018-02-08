@@ -17,7 +17,7 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   await runPrepublishScript(pkgDir)
 
   try {
-    await renameOverwrite(modules, tmpModules)
+    await renameOverwriteIfExists(modules, tmpModules)
 
     await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
 
@@ -30,9 +30,17 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
   } finally {
     await unhideDeps(pkgDir)
 
-    await renameOverwrite(tmpModules, modules)
+    await renameOverwriteIfExists(tmpModules, modules)
 
     if (publishedModules) await rimraf(publishedModules)
+  }
+}
+
+async function renameOverwriteIfExists (oldPath: string, newPath: string) {
+  try {
+    await renameOverwrite(oldPath, newPath)
+  } catch (err) {
+    if (err['code'] !== 'ENOENT') throw err
   }
 }
 

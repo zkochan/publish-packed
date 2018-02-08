@@ -14,8 +14,11 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "exit 0",
-    "prepublish": "npm run tsc"
+    "ci-test": "exit 0",
+    "test": "preview && npm-run-all -p -r verdaccio tape",
+    "prepublish": "npm run tsc",
+    "verdaccio": "verdaccio --config test/registry/config.yaml",
+    "tape": "ts-node test --type-check"
   },
   "repository": {
     "type": "git",
@@ -37,6 +40,12 @@
     "write-pkg": "^3.0.1"
   },
   "devDependencies": {
-    "typescript": "^2.2.1"
+    "@types/tape": "^4.2.31",
+    "npm-run-all": "^4.1.2",
+    "package-preview": "^1.0.5",
+    "tape": "^4.8.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.2.1",
+    "verdaccio": "^2.7.4"
   }
 }

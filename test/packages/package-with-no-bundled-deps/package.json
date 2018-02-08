@@ -1,0 +1,10 @@
+{
+  "name": "package-with-no-bundled-deps",
+  "version": "1.0.0",
+  "dependencies": {
+    "is-positive": "^3.0.0"
+  },
+  "devDependencies": {
+    "is-negative": "2.1.0"
+  }
+}
