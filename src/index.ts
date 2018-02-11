@@ -61,13 +61,17 @@ async function runPrepublishScript (pkgDir: string) {
 function hideDeps (pkgDir: string) {
   return renameKeys(pkgDir, {
     dependencies: '__dependencies',
-    scripts: '__scripts'
+    scripts: {
+      prepublish: '__prepublish'
+    }
   })
 }
 
 function unhideDeps (pkgDir: string) {
   return renameKeys(pkgDir, {
     __dependencies: 'dependencies',
-    __scripts: 'scripts'
+    scripts: {
+      __prepublish: 'prepublish'
+    }
   })
 }
