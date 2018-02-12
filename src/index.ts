@@ -62,7 +62,8 @@ function hideDeps (pkgDir: string) {
   return renameKeys(pkgDir, {
     dependencies: '__dependencies',
     scripts: {
-      prepublish: '__prepublish'
+      prepublish: '__prepublish',
+      prepublishOnly: '__prepublishOnly'
     }
   })
 }
@@ -71,7 +72,8 @@ function unhideDeps (pkgDir: string) {
   return renameKeys(pkgDir, {
     __dependencies: 'dependencies',
     scripts: {
-      __prepublish: 'prepublish'
+      __prepublish: 'prepublish',
+      __prepublishOnly: 'prepublishOnly'
     }
   })
 }
