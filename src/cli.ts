@@ -1,4 +1,13 @@
 #!/usr/bin/env node
 import publishPacked from '.'
+import getopts = require('getopts')
 
-publishPacked(process.cwd(), {tag: process.argv[2]})
+const opts = getopts(process.argv.slice(2), {
+  boolean: ['prune'],
+  default: {
+    prune: false,
+    tag: 'latest',
+  },
+})
+
+publishPacked(process.cwd(), opts)

@@ -27,3 +27,8 @@ declare module 'nm-prune' {
   const anything: any;
   export = anything;
 }
+
+declare module 'getopts' {
+  const anything: any;
+  export = anything;
+}
