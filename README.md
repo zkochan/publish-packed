@@ -12,8 +12,9 @@ you have to list all the dependencies you want to bundle.
 `publish-packed` bundles all dependencies with your package:
 
 1. it installs all your dependencies first
+1. it prunes `node_modules`, removing markdown files, tests, configs and other resources that are not code
 2. it moves the `node_modules` folder from the root of your package to `lib/node_modules`
-   
+
    When publishing, npm ignores the `node_modules` folder in the root of your package. However,
    it packs all `node_modules` in subfolders.
 3. it escapes the `dependencies` field in your package's `package.json`, so during installation

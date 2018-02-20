@@ -31,9 +31,10 @@
   },
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
-    "@types/mz": "^0.0.32",
+    "@types/fs-extra": "^5.0.0",
     "execa": "^0.9.0",
-    "mz": "^2.6.0",
+    "fs-extra": "^5.0.0",
+    "nm-prune": "^4.0.0",
     "read-pkg": "^3.0.0",
     "rename-overwrite": "^1.0.2",
     "rimraf-then": "^1.0.1",
