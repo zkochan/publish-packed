@@ -7,9 +7,16 @@ import readPkg = require('read-pkg')
 import renameOverwrite = require('rename-overwrite')
 import nmPrune = require('nm-prune')
 
-export default async function (pkgDir: string, opts?: {tag?: string}) {
+export default async function (
+  pkgDir: string,
+  opts?: {
+    tag?: string,
+    prune?: boolean,
+  },
+) {
   opts = opts || {}
   const tag = opts.tag || 'latest'
+  const prune = opts.prune || false
 
   const modules = path.join(pkgDir, 'node_modules')
   const tmpModules = path.join(pkgDir, 'tmp_node_modules')
@@ -21,7 +28,8 @@ export default async function (pkgDir: string, opts?: {tag?: string}) {
     await renameOverwriteIfExists(modules, tmpModules)
 
     await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
-    await pruneNodeModules(pkgDir)
+
+    if (prune) await pruneNodeModules(pkgDir)
 
     publishedModules = path.join(pkgDir, 'lib', 'node_modules')
     await renameOverwrite(modules, publishedModules)
