@@ -22,3 +22,8 @@ declare module 'rename-overwrite' {
   const anything: any;
   export = anything;
 }
+
+declare module 'nm-prune' {
+  const anything: any;
+  export = anything;
+}
