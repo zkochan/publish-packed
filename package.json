@@ -48,6 +48,6 @@
     "tape": "^4.8.0",
     "ts-node": "^6.0.0",
     "typescript": "^2.2.1",
-    "verdaccio": "^2.7.4"
+    "verdaccio": "^3.0.0"
   }
 }
