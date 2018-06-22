@@ -33,7 +33,7 @@
   "dependencies": {
     "@types/fs-extra": "^5.0.0",
     "execa": "^0.10.0",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^6.0.0",
     "getopts": "^2.0.0",
     "nm-prune": "^4.0.0",
     "read-pkg": "^3.0.0",
