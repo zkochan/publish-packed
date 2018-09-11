@@ -32,17 +32,20 @@
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
     "@types/fs-extra": "^5.0.0",
+    "@types/node": "^10.9.4",
+    "@types/resolve-from": "^0.0.18",
     "execa": "^0.10.0",
     "fs-extra": "^7.0.0",
     "getopts": "^2.0.0",
     "nm-prune": "^4.0.0",
+    "npm": "^4.6.1",
     "read-pkg": "^4.0.0",
     "rename-overwrite": "^1.0.2",
+    "resolve-from": "^4.0.0",
     "rimraf-then": "^1.0.1",
     "write-pkg": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^10.9.4",
     "@types/tape": "^4.2.31",
     "npm-run-all": "^4.1.2",
     "package-preview": "^1.0.5",

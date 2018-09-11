@@ -1,11 +1,11 @@
 import fs = require('fs-extra')
 import path = require('path')
-import execa = require('execa')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
 import readPkg = require('read-pkg')
 import renameOverwrite = require('rename-overwrite')
 import nmPrune = require('nm-prune')
+import runNpm from './runNpm'
 
 export default async function (
   pkgDir: string,
@@ -27,7 +27,7 @@ export default async function (
   try {
     await renameOverwriteIfExists(modules, tmpModules)
 
-    await execa('npm', ['install', '--production', '--ignore-scripts', '--no-package-lock'], {cwd: pkgDir, stdio: 'inherit'})
+    await runNpm(['install', '--production', '--ignore-scripts', '--no-package-lock'], pkgDir)
 
     if (prune) await pruneNodeModules(pkgDir)
 
@@ -36,7 +36,7 @@ export default async function (
 
     await hideDeps(pkgDir)
 
-    await execa('npm', ['publish', '--tag', tag], {cwd: pkgDir, stdio: 'inherit'})
+    await runNpm(['publish', '--tag', tag], pkgDir)
   } finally {
     await unhideDeps(pkgDir)
 
@@ -66,11 +66,11 @@ async function runPrepublishScript (pkgDir: string) {
   if (!pkgJson['scripts']) return
 
   if (pkgJson['scripts']['prepublish']) {
-    await execa('npm', ['run', 'prepublish'], {cwd: pkgDir, stdio: 'inherit'})
+    await runNpm(['run', 'prepublish'], pkgDir)
   }
 
   if (pkgJson['scripts']['prepublishOnly']) {
-    await execa('npm', ['run', 'prepublishOnly'], {cwd: pkgDir, stdio: 'inherit'})
+    await runNpm(['run', 'prepublishOnly'], pkgDir)
   }
 }
 
