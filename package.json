@@ -38,7 +38,7 @@
     "fs-extra": "^7.0.0",
     "getopts": "^2.0.0",
     "nm-prune": "^4.0.0",
-    "npm": "^4.6.1",
+    "npm": "^6.0.0",
     "read-pkg": "^4.0.0",
     "rename-overwrite": "^1.0.2",
     "resolve-from": "^4.0.0",

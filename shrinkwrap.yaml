@@ -6,7 +6,7 @@ dependencies:
   fs-extra: 7.0.1
   getopts: 2.2.3
   nm-prune: 4.0.0
-  npm: 4.6.1
+  npm: 6.5.0
   read-pkg: 4.0.1
   rename-overwrite: 1.0.3
   resolve-from: 4.0.0
@@ -2261,28 +2261,33 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=
-  /npm/4.6.1:
+  /npm/6.5.0:
     bundledDependencies:
       - abbrev
-      - ansi-regex
       - ansicolors
       - ansistyles
       - aproba
       - archy
-      - asap
+      - byte-size
+      - cacache
       - call-limit
       - bluebird
+      - bin-links
       - chownr
+      - ci-info
       - cmd-shim
       - columnify
       - config-chain
       - debuglog
+      - detect-indent
+      - detect-newline
       - dezalgo
       - editor
+      - figgy-pudding
+      - find-npm-prefix
       - fs-vacuum
       - fs-write-stream-atomic
-      - fstream
-      - fstream-npm
+      - gentle-fs
       - glob
       - graceful-fs
       - has-unicode
@@ -2293,8 +2298,13 @@ packages:
       - inherits
       - ini
       - init-package-json
+      - is-cidr
+      - json-parse-better-errors
       - JSONStream
       - lazy-property
+      - libcipm
+      - libnpmhook
+      - libnpx
       - lockfile
       - lodash._baseindexof
       - lodash._baseuniq
@@ -2307,23 +2317,34 @@ packages:
       - lodash.union
       - lodash.uniq
       - lodash.without
+      - lru-cache
+      - meant
       - mkdirp
       - mississippi
       - move-concurrently
-      - node-gyp
       - nopt
-      - normalize-git-url
       - normalize-package-data
+      - npm-audit-report
       - npm-cache-filename
+      - npm-lifecycle
       - npm-install-checks
       - npm-package-arg
+      - npm-packlist
+      - npm-pick-manifest
+      - npm-profile
       - npm-registry-client
+      - npm-registry-fetch
       - npm-user-validate
       - npmlog
       - once
       - opener
       - osenv
+      - pacote
       - path-is-inside
+      - promise-inflight
+      - query-string
+      - qrcode-terminal
+      - qw
       - read
       - read-cmd-shim
       - read-installed
@@ -2331,7 +2352,6 @@ packages:
       - read-package-tree
       - readable-stream
       - readdir-scoped-modules
-      - realize-package-specifier
       - request
       - retry
       - rimraf
@@ -2340,7 +2360,7 @@ packages:
       - slide
       - sorted-object
       - sorted-union-stream
-      - strip-ansi
+      - ssri
       - tar
       - text-table
       - uid-number
@@ -2352,12 +2372,19 @@ packages:
       - validate-npm-package-license
       - validate-npm-package-name
       - which
-      - wrappy
       - write-file-atomic
+      - safe-buffer
+      - worker-farm
+      - tiny-relative-date
+      - cli-columns
+      - cli-table3
+      - node-gyp
+      - lock-verify
+      - stringify-package
     dev: false
     hasBin: true
     resolution:
-      integrity: sha1-+Osa0A3FilUUNjtBylNCgX8L1kY=
+      integrity: sha512-SPq8zG2Kto+Xrq55E97O14Jla13PmQT5kSnvwBj88BmJZ5Nvw++OmlWfhjkB67pcgP5UEXljEtnGFKZtOgt6MQ==
   /number-is-nan/1.0.1:
     dev: false
     engines:
@@ -3789,7 +3816,7 @@ specifiers:
   fs-extra: ^7.0.0
   getopts: ^2.0.0
   nm-prune: ^4.0.0
-  npm: ^4.6.1
+  npm: ^6.0.0
   npm-run-all: ^4.1.2
   package-preview: ^2.0.0
   read-pkg: ^4.0.0
