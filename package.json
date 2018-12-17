@@ -33,7 +33,7 @@
   "dependencies": {
     "@types/fs-extra": "^5.0.0",
     "@types/node": "^10.9.4",
-    "@types/resolve-from": "^0.0.18",
+    "@types/resolve-from": "^4.0.0",
     "execa": "^0.10.0",
     "fs-extra": "^7.0.0",
     "getopts": "^2.0.0",
