@@ -50,7 +50,7 @@
     "npm-run-all": "^4.1.2",
     "package-preview": "^2.0.0",
     "tape": "^4.8.0",
-    "ts-node": "^7.0.0",
+    "ts-node": "^8.0.0",
     "typescript": "^3.0.0",
     "verdaccio": "^3.0.0"
   }
