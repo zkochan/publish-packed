@@ -1,9 +1,8 @@
 import readPkg = require('read-pkg')
 import writePkg = require('write-pkg')
-import path = require('path')
 
 export default async (pkgDir: string, keysMap: Object) => {
-  const pkgJSON = await readPkg(pkgDir, {normalize: false})
+  const pkgJSON = await readPkg({ cwd: pkgDir, normalize: false })
 
   const newPkgJSON = renameKeys(pkgJSON, keysMap);
 

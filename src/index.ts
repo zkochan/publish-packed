@@ -61,7 +61,7 @@ async function renameOverwriteIfExists (oldPath: string, newPath: string) {
 }
 
 async function runPrepublishScript (pkgDir: string) {
-  const pkgJson = await readPkg(pkgDir)
+  const pkgJson = await readPkg({ cwd: pkgDir })
 
   if (!pkgJson['scripts']) return
 
