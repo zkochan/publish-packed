@@ -16,7 +16,7 @@
     "tsc": "tsc",
     "ci-test": "exit 0",
     "test": "preview && npm-run-all -p -r verdaccio tape",
-    "prepublish": "npm run tsc",
+    "prepublishOnly": "npm run tsc",
     "verdaccio": "verdaccio --config test/registry/config.yaml",
     "tape": "ts-node test --type-check"
   },
