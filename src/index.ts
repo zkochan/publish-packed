@@ -32,7 +32,7 @@ export default async function (
     if (prune) await pruneNodeModules(pkgDir)
 
     publishedModules = path.join(pkgDir, 'lib', 'node_modules')
-    await renameOverwrite(modules, publishedModules)
+    await renameOverwriteIfExists(modules, publishedModules)
 
     await hideDeps(pkgDir)
 
@@ -52,7 +52,7 @@ async function pruneNodeModules (pkgDir: string) {
   await Promise.all(info.dirs.map(fullPath => fs.remove(fullPath)));
 }
 
-async function renameOverwriteIfExists (oldPath: string, newPath: string) {
+async function renameOverwriteIfExists (oldPath: string, newPath: string | null) {
   try {
     await renameOverwrite(oldPath, newPath)
   } catch (err) {
