@@ -5,6 +5,9 @@
     "is-positive": "^3.0.0"
   },
   "devDependencies": {
-    "is-negative": "2.1.0"
+    "is-negative": "^2.1.0"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
   }
 }
