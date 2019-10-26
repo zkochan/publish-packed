@@ -10,7 +10,7 @@
   "bin": "lib/cli.js",
   "preferGlobal": true,
   "engines": {
-    "node": ">=4"
+    "node": ">=10"
   },
   "scripts": {
     "tsc": "tsc",
