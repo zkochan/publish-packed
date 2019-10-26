@@ -24,15 +24,6 @@ export const defaultOptions = {
   verbose: false,
 }
 
-// export interface defaultOptions {
-//   tag?: string | 'latest',
-//   run?: typeof run | run,
-//   npmClient?: string | 'npm',
-//   prune?: boolean | false,
-//   verbose?: boolean | false,
-// }
-// export type Options = typeof defaultOptions & { paths?: string[] }
-
 export async function run (cwd: string, args: string[], opts: Options = defaultOptions) {
   const options = { ...defaultOptions, ...opts }
   const { verbose, npmClient } = options
@@ -43,8 +34,9 @@ export async function run (cwd: string, args: string[], opts: Options = defaultO
     throw new Error(`Cannot find cli for "${npmClient}" package manager`)
   }
 
-  verbose && console.log('Using npmClient "%s" from', npmClient, cliPath)
-  verbose && console.log('With the following arguments:', args)
+  if (verbose) {
+    console.log(`Using npmClient "${npmClient}" from ${cliPath}\nWith the following arguments: ${args}`)
+  }
 
   await execa(cliPath, args, {
     cwd,
