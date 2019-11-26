@@ -1,9 +1,9 @@
 dependencies:
-  '@types/fs-extra': 5.1.0
+  '@types/fs-extra': 8.0.1
   '@types/node': 10.17.6
   all-module-paths: 0.7.1
   execa: 3.4.0
-  fs-extra: 7.0.1
+  fs-extra: 8.1.0
   getopts: 2.2.5
   nm-prune: 4.0.0
   read-pkg: 5.2.0
@@ -51,12 +51,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-AgE3bPlVZxD4kmt7sjTrDlkA8jdtPk4WwW6pJROrW1sK69W6s8kvILbq+urngz5ya73D+i3yuFVQVjTqSINzcQ==
-  /@types/fs-extra/5.1.0:
+  /@types/fs-extra/8.0.1:
     dependencies:
       '@types/node': 10.17.6
     dev: false
     resolution:
-      integrity: sha512-AInn5+UBFIK9FK5xc9yP5e3TQSPNNgjHByqYcj9g5elVBnDQcQL7PlO1CIRy2gWlbwK7UPYqi7vRvFA44dCmYQ==
+      integrity: sha512-J00cVDALmi/hJOYsunyT52Hva5TnJeKP5yd1r+mH/ZU0mbYZflR0Z5kw5kITtKTRYMhm1JMClOFYdHnQszEvqw==
   /@types/got/8.3.5:
     dependencies:
       '@types/node': 10.17.6
@@ -1519,22 +1519,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-q6rbdDd1o2mAnQreO7YADIxf/Whx4AHBiRf6d+/cVT8h44ss+lHgxf1FemcqDnQt9X3ct4McHr+JMGlYSsK7Cg==
-  /fs-extra/7.0.1:
-    dependencies:
-      graceful-fs: 4.2.3
-      jsonfile: 4.0.0
-      universalify: 0.1.2
-    dev: false
-    engines:
-      node: '>=6 <7 || >=8'
-    resolution:
-      integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
   /fs-extra/8.1.0:
     dependencies:
       graceful-fs: 4.2.3
       jsonfile: 4.0.0
       universalify: 0.1.2
-    dev: true
     engines:
       node: '>=6 <7 || >=8'
     resolution:
@@ -4507,11 +4496,11 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@types/fs-extra': ^5.0.0
+  '@types/fs-extra': ^8.0.0
   '@types/node': ^10.9.4
   all-module-paths: ^0.7.1
   execa: ^3.2.0
-  fs-extra: ^7.0.0
+  fs-extra: ^8.0.0
   getopts: ^2.0.0
   nm-prune: ^4.0.0
   npm-run-all: ^4.1.2

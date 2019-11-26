@@ -31,11 +31,11 @@
   },
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
-    "@types/fs-extra": "^5.0.0",
+    "@types/fs-extra": "^8.0.0",
     "@types/node": "^10.9.4",
     "all-module-paths": "^0.7.1",
     "execa": "^3.2.0",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^8.0.0",
     "getopts": "^2.0.0",
     "nm-prune": "^4.0.0",
     "read-pkg": "^5.0.0",
