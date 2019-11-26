@@ -39,7 +39,7 @@
     "getopts": "^2.0.0",
     "nm-prune": "^4.0.0",
     "read-pkg": "^4.0.0",
-    "rename-overwrite": "^1.0.2",
+    "rename-overwrite": "^2.0.0",
     "rimraf-then": "^1.0.1",
     "write-pkg": "^3.0.1"
   },
