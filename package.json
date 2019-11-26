@@ -46,7 +46,7 @@
   "devDependencies": {
     "npm-run-all": "^4.1.2",
     "p-map-series": "^2.1.0",
-    "package-preview": "^2.0.0",
+    "package-preview": "^3.0.0",
     "tape": "^4.8.0",
     "tape-await": "^0.1.2",
     "ts-node": "^8.0.0",
