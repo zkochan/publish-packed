@@ -1,7 +1,7 @@
 dependencies:
   '@types/fs-extra': 8.0.1
   '@types/node': 10.17.6
-  all-module-paths: 0.9.0
+  all-module-paths: 0.10.0
   execa: 3.4.0
   fs-extra: 8.1.0
   getopts: 2.2.5
@@ -241,7 +241,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
-  /all-module-paths/0.9.0:
+  /all-module-paths/0.10.0:
     dependencies:
       esm: 3.2.25
       global-dirs: 2.0.1
@@ -249,7 +249,7 @@ packages:
     engines:
       node: '>=10.13'
     resolution:
-      integrity: sha512-kxIW5S8q3inicDlml6heYSibKaij2Fles4EwBLQZZ2jvBJDtVE2ofszKVISJufx7is6ykkGBcd76DlqOtatJJw==
+      integrity: sha512-PHTEoPQhudYNPPWpylNtI907+kHIoXrdKiAB/Tsm03WS7DaXUV9n31jWfpQnyEHHkYfa7V2lKXWyU1Y/wAINaw==
   /ansi-bgblack/0.1.1:
     dependencies:
       ansi-wrap: 0.1.0
@@ -4513,7 +4513,7 @@ packages:
 specifiers:
   '@types/fs-extra': ^8.0.0
   '@types/node': ^10.9.4
-  all-module-paths: ^0.9.0
+  all-module-paths: ^0.10.0
   execa: ^3.2.0
   fs-extra: ^8.0.0
   getopts: ^2.0.0
