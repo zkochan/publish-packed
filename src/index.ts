@@ -73,10 +73,6 @@ function hideDeps (pkgDir: string) {
     dependencies: '__dependencies',
     devDependencies: '__devDependencies',
     optionalDependencies: '__optionalDependencies',
-    scripts: {
-      prepublish: '__prepublish',
-      prepublishOnly: '__prepublishOnly'
-    }
   })
 }
 
@@ -85,9 +81,5 @@ function unhideDeps (pkgDir: string) {
     __dependencies: 'dependencies',
     __devDependencies: 'devDependencies',
     __optionalDependencies: 'optionalDependencies',
-    scripts: {
-      __prepublish: 'prepublish',
-      __prepublishOnly: 'prepublishOnly'
-    }
   })
 }
