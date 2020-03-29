@@ -52,7 +52,6 @@ test('should work with opts.npmClient option', async (t) => {
   })
 
   if (clients.length === 0) {
-    t.end()
     return
   }
 

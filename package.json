@@ -31,26 +31,27 @@
   },
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
-    "@types/fs-extra": "^8.0.0",
-    "@types/node": "^10.9.4",
-    "all-module-paths": "^0.9.0",
-    "execa": "^3.2.0",
-    "fs-extra": "^8.0.0",
-    "getopts": "^2.0.0",
+    "@types/fs-extra": "^8.1.0",
+    "@types/node": "^13.9.5",
+    "all-module-paths": "^0.10.7",
+    "execa": "^4.0.0",
+    "fs-extra": "^9.0.0",
+    "getopts": "^2.2.5",
     "nm-prune": "^4.0.0",
-    "read-pkg": "^5.0.0",
-    "rename-overwrite": "^2.0.0",
+    "read-pkg": "^5.2.0",
+    "rename-overwrite": "^2.0.2",
     "rimraf-then": "^1.0.1",
     "write-pkg": "^4.0.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.2",
+    "npm": "^6.14.4",
+    "npm-run-all": "^4.1.5",
     "p-map-series": "^2.1.0",
     "package-preview": "^3.0.0",
-    "tape": "^4.8.0",
+    "tape": "^4.13.2",
     "tape-await": "^0.1.2",
-    "ts-node": "^8.0.0",
-    "typescript": "^3.0.0",
-    "verdaccio": "^4.0.0"
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3",
+    "verdaccio": "^4.5.1"
   }
 }
