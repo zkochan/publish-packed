@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import publishPacked from '.'
+import { prepublishOnly, postpublish } from '.'
 import getopts = require('getopts')
 
 const opts = getopts(process.argv.slice(2), {
@@ -14,6 +14,7 @@ const opts = getopts(process.argv.slice(2), {
   ],
   string: ['npmClient', 'npm-client'],
   default: {
+    npmClient: 'npm',
     help: false,
     prune: false,
     verbose: false,
@@ -37,5 +38,12 @@ if (opts._[0] === 'help' || opts.help) {
     -n, --npm-client    Name of package manager (npm, yarn, pnpm), default 'npm'
   `)
 } else {
-  publishPacked(process.cwd(), opts)
+  switch (process.env.npm_lifecycle_event) {
+    case 'prepublishOnly':
+      prepublishOnly(process.cwd(), opts)
+      break
+    case 'postpublish':
+      postpublish(process.cwd())
+      break
+  }
 }

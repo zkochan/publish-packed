@@ -10,7 +10,6 @@ import allModulePaths = require('all-module-paths')
 
 export type Options = { paths?: string[] } & {
   tag?: string,
-  run?: typeof run,
   npmClient?: string,
   prune?: boolean,
   verbose?: boolean,
@@ -18,7 +17,6 @@ export type Options = { paths?: string[] } & {
 
 export const defaultOptions = {
   tag: 'latest',
-  run: run,
   npmClient: 'npm',
   prune: false,
   verbose: false,
@@ -28,6 +26,9 @@ export async function run (cwd: string, args: string[], opts: Options = defaultO
   const options = { ...defaultOptions, ...opts }
   const { verbose, npmClient } = options
 
+  if (options.npmClient === '') {
+    throw new Error(`opts.npmClient cannot be an empty string`)
+  }
   let cliPath: string | undefined = getCliPath(options)
 
   if (!cliPath) {

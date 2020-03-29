@@ -2,15 +2,14 @@ import fs = require('fs-extra')
 import path = require('path')
 import rimraf = require('rimraf-then')
 import renameKeys from './renameKeys'
-import readPkg = require('read-pkg')
 import renameOverwrite = require('rename-overwrite')
 import nmPrune = require('nm-prune')
 
-import { run, defaultOptions, Options } from './run-utils'
+import { defaultOptions, run, Options } from './run-utils'
 
-export default async function (pkgDir: string, opts: Options = defaultOptions) {
+export async function prepublishOnly (pkgDir: string, opts: Options = defaultOptions) {
   const options = { ...defaultOptions, ...opts }
-  const { tag, prune } = options
+  const { prune } = options
 
   const lockfileMap = {
     yarn: '--no-lockfile',
@@ -18,18 +17,15 @@ export default async function (pkgDir: string, opts: Options = defaultOptions) {
     npm: '--no-package-lock'
   }
 
-  const runCli = options.run
   const lockfileFlag = lockfileMap[options.npmClient]
   const modules = path.join(pkgDir, 'node_modules')
   const tmpModules = path.join(pkgDir, 'tmp_node_modules')
   let publishedModules: string | null = null
 
-  await runPrepublishScript(pkgDir, runCli, options)
-
   try {
     await renameOverwriteIfExists(modules, tmpModules)
 
-    await runCli(
+    await run(
       pkgDir,
       ['install', '--production', '--ignore-scripts', lockfileFlag],
       options
@@ -41,21 +37,21 @@ export default async function (pkgDir: string, opts: Options = defaultOptions) {
     await renameOverwriteIfExists(modules, publishedModules)
 
     await hideDeps(pkgDir)
-    await runCli(
-      pkgDir,
-      ['publish', '--tag', tag],
-      {
-        ...options,
-        npmClient: 'npm' // ! force using npm for publishing
-      }
-    )
-  } finally {
-    await unhideDeps(pkgDir)
-
-    await renameOverwriteIfExists(tmpModules, modules)
-
-    if (publishedModules) await rimraf(publishedModules)
+  } catch (err) {
+    await postpublish(pkgDir)
+    throw err
   }
+}
+
+export async function postpublish (pkgDir: string) {
+  await unhideDeps(pkgDir)
+  const modules = path.join(pkgDir, 'node_modules')
+  const tmpModules = path.join(pkgDir, 'tmp_node_modules')
+
+  await renameOverwriteIfExists(tmpModules, modules)
+
+  const publishedModules = path.join(pkgDir, 'lib', 'node_modules')
+  await rimraf(publishedModules)
 }
 
 async function pruneNodeModules (pkgDir: string) {
@@ -69,20 +65,6 @@ async function renameOverwriteIfExists (oldPath: string, newPath: string | null)
     await renameOverwrite(oldPath, newPath)
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
-  }
-}
-
-async function runPrepublishScript (pkgDir: string, runCli: typeof run, opts: Options) {
-  const pkgJson = await readPkg({ cwd: pkgDir })
-
-  if (!pkgJson['scripts']) return
-
-  if (pkgJson['scripts']['prepublish']) {
-    await runCli(pkgDir, ['run', 'prepublish'], opts)
-  }
-
-  if (pkgJson['scripts']['prepublishOnly']) {
-    await runCli(pkgDir, ['run', 'prepublishOnly'], opts)
   }
 }
 
