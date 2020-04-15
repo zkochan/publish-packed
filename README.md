@@ -23,33 +23,28 @@ no dependencies of your package will be installed, except optional dependencies.
 Limitations:
 
 1. you can use `publish-packed` only if all your source code is in the `lib/` directory
-because all you dependencies are going to be inside `lib/node_modules`.
+because all your dependencies are going to be inside `lib/node_modules`.
 2. you can use `publish-packed` only if your prod dependencies don't have lifecycle events like `postinstall`
 that should be executed during installation
 
 ## Installation
 
 ```
-npm install --global publish-packed
+<npm|pnpm|yarn> add -D publish-packed
 ```
 
 ## Usage
 
-Install [in-publish](https://www.npmjs.com/package/in-publish) as dev dependency
-
-```
-npm install --save-dev in-publish
-```
-
-Add it to `package.json`:
+Add `publish-packed` to the `prepublishOnly` and `postpublish` scripts of your `package.json`:
 
 ```json
   "scripts": {
-    "prepublish": "in-publish && echo 'You need to use \"publish-packed\" to publish this package' && false || not-in-publish"
+    "prepublishOnly": "publish-packed",
+    "postpublish": "publish-packed"
   }
 ```
 
-To publish the package, run `publish-packed`.
+To publish the package, just run `<npm|pnpm|yarn> publish`.
 
 ## License
 
