@@ -3,7 +3,7 @@ import path = require('path')
 import test = require('tape-await')
 import pMapSeries from 'p-map-series'
 
-import publishPacked from '../src/index'
+import { prepublishOnly } from '../src/index'
 import { getCliPath } from '../src/run-utils'
 
 function cleanupWrapper (fn) {
@@ -24,7 +24,7 @@ test('should work with using `npm` client by default', cleanupWrapper(async (t) 
   const pkgName = 'package-with-no-bundled-deps'
   const filepath = path.join(__dirname, 'packages', pkgName)
 
-  await publishPacked(filepath)
+  await prepublishOnly(filepath)
   t.pass('should pass')
 }))
 
@@ -34,7 +34,7 @@ test('should fail correctly if pkgDir not found or other errors', cleanupWrapper
   const filepath = path.join(__dirname, 'foo-bar-not-existing')
 
   try {
-    await publishPacked(filepath)
+    await prepublishOnly(filepath)
   } catch (err) {
     t.pass('correctly fails')
     return
@@ -61,7 +61,7 @@ test('should work with opts.npmClient option', async (t) => {
     const pkgName = 'package-with-no-bundled-deps'
     const filepath = path.join(__dirname, 'packages', pkgName)
 
-    await publishPacked(filepath, { npmClient: npmClient })
+    await prepublishOnly(filepath, { npmClient: npmClient })
     t.pass(`should work with opts.npmClient: ${npmClient} client`)
   }))
 })
