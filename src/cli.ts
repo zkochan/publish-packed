@@ -35,12 +35,16 @@ if (opts._[0] === 'help' || opts.help) {
     -n, --npm-client    Name of package manager (npm, yarn, pnpm), default 'npm'
   `)
 } else {
-  switch (process.env.npm_lifecycle_event) {
-    case 'prepublishOnly':
-      prepublishOnly(process.cwd(), opts)
-      break
-    case 'postpublish':
-      postpublish(process.cwd())
-      break
-  }
+  (async () => {
+    switch (process.env.npm_lifecycle_event) {
+      case 'prepublishOnly':
+        await prepublishOnly(process.cwd(), opts)
+        break
+      case 'postpublish':
+        await postpublish(process.cwd())
+        break
+    }
+  })().catch(() => {
+    process.exit(1)
+  })
 }
