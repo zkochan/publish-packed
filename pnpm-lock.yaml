@@ -5,7 +5,7 @@ dependencies:
   getopts: 2.2.5
   nm-prune: 4.0.0
   read-pkg: 5.2.0
-  rename-overwrite: 2.0.2
+  rename-overwrite: 3.0.0
   rimraf-then: 1.0.1
   write-pkg: 4.0.0
 devDependencies:
@@ -1651,6 +1651,10 @@ packages:
   /graceful-fs/4.2.3:
     resolution:
       integrity: sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+  /graceful-fs/4.2.4:
+    dev: false
+    resolution:
+      integrity: sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
   /gunzip-maybe/1.4.1:
     dependencies:
       browserify-zlib: 0.1.4
@@ -3655,15 +3659,15 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-2+Q0C5g951OlYlJz6yu5/M33IcsESLlLfsyIaLJaG4FA2r4yP8MvVMJUUP/fVBkSpbbbZlS5gynbEWLipiiXiQ==
-  /rename-overwrite/2.0.2:
+  /rename-overwrite/3.0.0:
     dependencies:
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       rimraf: 3.0.2
     dev: false
     engines:
-      node: '>=8'
+      node: '>=10.12'
     resolution:
-      integrity: sha512-XodkUmbg11ZzZoAkYfJYEmj8FscfeRL2KHGALeDSB76ia8A1zqQq0+WkcepXm7QkuzmW0CE3uiFUBr/UJfin+w==
+      integrity: sha512-/XB82wGDkV0bWNWu0PQgv+uuwsp/149HwF00/pRmJFPcX/9xLCvlUdbOjn3/OELh/mBveZ5MGknqGEnURxn5Xw==
   /repeating/2.0.1:
     dependencies:
       is-finite: 1.1.0
@@ -4907,7 +4911,7 @@ specifiers:
   p-map-series: ^2.1.0
   package-preview: ^3.0.0
   read-pkg: ^5.2.0
-  rename-overwrite: ^2.0.2
+  rename-overwrite: ^3.0.0
   rimraf-then: ^1.0.1
   tape: ^5.0.0
   tape-await: ^0.1.2
