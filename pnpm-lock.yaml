@@ -9,7 +9,7 @@ dependencies:
   rimraf-then: 1.0.1
   write-pkg: 4.0.0
 devDependencies:
-  '@types/fs-extra': 8.1.0
+  '@types/fs-extra': 9.0.0
   '@types/node': 13.11.1
   npm: 6.14.4
   npm-run-all: 4.1.5
@@ -56,12 +56,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-bfMgLFmg33kY1XBPBgdkbpld6fSeyt6iAlXbIMioArHd1t58EAMFmM2cYZQt4I2MguUpLRDlZwOpYYmirDHhsg==
-  /@types/fs-extra/8.1.0:
+  /@types/fs-extra/9.0.0:
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 13.13.6
     dev: true
     resolution:
-      integrity: sha512-UoOfVEzAUpeSPmjm7h1uk5MH6KZma2z2O7a75onTGjnNvAvMVrPzPL/vBbT65iIGHWj6rokwfmYcmxmlSf2uwg==
+      integrity: sha512-xCbDUSZArlmMjiJdczt8AFNH2MwcMb/pj/HKja1hx3u1qzOUINcJktQMGoGVlgFnzxnuCahxKFlcRBkSAcm33g==
   /@types/got/8.3.5:
     dependencies:
       '@types/node': 10.17.17
@@ -76,6 +76,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
+  /@types/node/13.13.6:
+    dev: true
+    resolution:
+      integrity: sha512-zqRj8ugfROCjXCNbmPBe2mmQ0fJWP9lQaN519hwunOgpHgVykme4G6FW95++dyNFDvJUk4rtExkVkL0eciu5NA==
   /@types/normalize-package-data/2.4.0:
     dev: false
     resolution:
@@ -4899,7 +4903,7 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@types/fs-extra': ^8.1.0
+  '@types/fs-extra': ^9.0.0
   '@types/node': ^13.11.1
   all-module-paths: ^0.10.7
   execa: ^4.0.0
