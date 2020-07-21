@@ -25,9 +25,13 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
   try {
     await renameOverwriteIfExists(modules, tmpModules)
 
+    await renameKeys(pkgDir, {
+      devDependencies: '__devDependencies',
+    })
+
     await run(
       pkgDir,
-      ['install', '--production', '--ignore-scripts', lockfileFlag],
+      ['install', '--ignore-scripts', lockfileFlag],
       options
     )
 
@@ -71,7 +75,6 @@ async function renameOverwriteIfExists (oldPath: string, newPath: string | null)
 function hideDeps (pkgDir: string) {
   return renameKeys(pkgDir, {
     dependencies: '__dependencies',
-    devDependencies: '__devDependencies',
     optionalDependencies: '__optionalDependencies',
   })
 }
