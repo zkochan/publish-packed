@@ -17,8 +17,8 @@ devDependencies:
   package-preview: 3.0.0
   tape: 5.0.0
   tape-await: 0.1.2_tape@5.0.0
-  ts-node: 9.0.0_typescript@3.8.3
-  typescript: 3.8.3
+  ts-node: 9.0.0_typescript@4.0.2
+  typescript: 4.0.2
   verdaccio: 4.5.1
 lockfileVersion: 5.1
 packages:
@@ -4411,13 +4411,13 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-tAPQuRvlDDMd/EuC7s6yLD3hbSA=
-  /ts-node/9.0.0_typescript@3.8.3:
+  /ts-node/9.0.0_typescript@4.0.2:
     dependencies:
       arg: 4.1.3
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.19
-      typescript: 3.8.3
+      typescript: 4.0.2
       yn: 3.1.1
     dev: true
     engines:
@@ -4477,13 +4477,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
-  /typescript/3.8.3:
+  /typescript/4.0.2:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+      integrity: sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
   /uglify-js/3.8.1:
     dependencies:
       commander: 2.20.3
@@ -4920,6 +4920,6 @@ specifiers:
   tape: ^5.0.0
   tape-await: ^0.1.2
   ts-node: ^9.0.0
-  typescript: ^3.8.3
+  typescript: ^4.0.0
   verdaccio: ^4.5.1
   write-pkg: ^4.0.0
