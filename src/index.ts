@@ -66,7 +66,7 @@ async function pruneNodeModules (pkgDir: string) {
 
 async function renameOverwriteIfExists (oldPath: string, newPath: string | null) {
   try {
-    await renameOverwrite(oldPath, newPath)
+    await renameOverwrite(oldPath, newPath!)
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
   }

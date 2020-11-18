@@ -6,7 +6,7 @@ export default async (pkgDir: string, keysMap: Object) => {
 
   const newPkgJSON = renameKeys(pkgJSON, keysMap);
 
-  await writePkg(pkgDir, newPkgJSON)
+  await writePkg(pkgDir, newPkgJSON as any)
 }
 
 function renameKeys(target: Object, keysMap: Object): Object {
