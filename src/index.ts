@@ -37,7 +37,7 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
 
     if (prune) await pruneNodeModules(pkgDir)
 
-    publishedModules = path.join(pkgDir, 'lib', 'node_modules')
+    publishedModules = path.join(pkgDir, opts.destDir ?? 'lib', 'node_modules')
     await renameOverwriteIfExists(modules, publishedModules)
 
     await hideDeps(pkgDir)

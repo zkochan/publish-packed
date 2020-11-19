@@ -12,8 +12,9 @@ const opts = getopts(process.argv.slice(2), {
     'prune',
     'verbose',
   ],
-  string: ['npmClient', 'npm-client'],
+  string: ['npmClient', 'npm-client', 'dest'],
   default: {
+    dest: 'lib',
     npmClient: 'npm',
     help: false,
     prune: false,
@@ -33,6 +34,7 @@ if (opts._[0] === 'help' || opts.help) {
     --prune             Prune unneeded files (.md, .td, etc..) from node_modules folder.
     --verbose           Enable more verbose logging
     -n, --npm-client    Name of package manager (npm, yarn, pnpm), default 'npm'
+    --dest <dir>        The destination of the node_modules directory, default 'lib'
   `)
 } else {
   (async () => {
