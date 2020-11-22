@@ -8,7 +8,7 @@ import execa = require('execa')
 // @ts-ignore
 import allModulePaths = require('all-module-paths')
 
-export type Options = { paths?: string[], destDir?: string } & {
+export type Options = { paths?: string[], dest?: string } & {
   tag?: string,
   npmClient?: string,
   prune?: boolean,
