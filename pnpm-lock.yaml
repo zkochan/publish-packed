@@ -8,7 +8,7 @@ specifiers:
   fs-extra: ^9.0.1
   getopts: ^2.2.5
   nm-prune: ^4.0.0
-  npm: ^6.14.8
+  npm: ^7.0.0
   npm-run-all: ^4.1.5
   p-map-series: ^2.1.0
   package-preview: ^4.0.0
@@ -36,7 +36,7 @@ dependencies:
 devDependencies:
   '@types/fs-extra': 9.0.4
   '@types/node': 13.13.31
-  npm: 6.14.8
+  npm: 7.9.0
   npm-run-all: 4.1.5
   p-map-series: 2.1.0
   package-preview: 4.0.0
@@ -2593,134 +2593,77 @@ packages:
       path-key: 3.1.1
     dev: false
 
-  /npm/6.14.8:
-    resolution: {integrity: sha512-HBZVBMYs5blsj94GTeQZel7s9odVuuSUHy1+AlZh7rPVux1os2ashvEGLy/STNK7vUjbrCg5Kq9/GXisJgdf6A==}
-    engines: {node: 6 >=6.2.0 || 8 || >=9.3.0}
+  /npm/7.9.0:
+    resolution: {integrity: sha512-GW9RbueF717kJ4ZUVsTlhKBEY7AqX28OwQCsfIAkRZclfeeqQDnsoJz6WWuYTMpGBJnB2xknF8Dp364c93FDYA==}
+    engines: {node: '>=10'}
     hasBin: true
     dev: true
     bundledDependencies:
+      - '@npmcli/arborist'
+      - '@npmcli/ci-detect'
+      - '@npmcli/config'
+      - '@npmcli/run-script'
       - abbrev
       - ansicolors
       - ansistyles
-      - aproba
       - archy
-      - bin-links
-      - bluebird
       - byte-size
       - cacache
-      - call-limit
+      - chalk
       - chownr
-      - ci-info
       - cli-columns
       - cli-table3
-      - cmd-shim
       - columnify
-      - config-chain
-      - debuglog
-      - detect-indent
-      - detect-newline
-      - dezalgo
-      - editor
-      - figgy-pudding
-      - find-npm-prefix
-      - fs-vacuum
-      - fs-write-stream-atomic
-      - gentle-fs
       - glob
       - graceful-fs
-      - has-unicode
       - hosted-git-info
-      - iferr
-      - imurmurhash
-      - infer-owner
-      - inflight
-      - inherits
       - ini
       - init-package-json
       - is-cidr
-      - json-parse-better-errors
-      - JSONStream
-      - lazy-property
-      - libcipm
-      - libnpm
+      - json-parse-even-better-errors
+      - leven
       - libnpmaccess
+      - libnpmdiff
+      - libnpmfund
       - libnpmhook
       - libnpmorg
+      - libnpmpack
+      - libnpmpublish
       - libnpmsearch
       - libnpmteam
-      - libnpx
-      - lock-verify
-      - lockfile
-      - lodash._baseindexof
-      - lodash._baseuniq
-      - lodash._bindcallback
-      - lodash._cacheindexof
-      - lodash._createcache
-      - lodash._getnative
-      - lodash.clonedeep
-      - lodash.restparam
-      - lodash.union
-      - lodash.uniq
-      - lodash.without
-      - lru-cache
-      - meant
-      - mississippi
+      - libnpmversion
+      - make-fetch-happen
+      - minipass
+      - minipass-pipeline
       - mkdirp
-      - move-concurrently
+      - mkdirp-infer-owner
+      - ms
       - node-gyp
       - nopt
-      - normalize-package-data
       - npm-audit-report
-      - npm-cache-filename
-      - npm-install-checks
-      - npm-lifecycle
       - npm-package-arg
-      - npm-packlist
       - npm-pick-manifest
       - npm-profile
       - npm-registry-fetch
       - npm-user-validate
       - npmlog
-      - once
       - opener
-      - osenv
       - pacote
-      - path-is-inside
-      - promise-inflight
+      - parse-conflict-json
       - qrcode-terminal
-      - query-string
-      - qw
-      - read-cmd-shim
-      - read-installed
-      - read-package-json
-      - read-package-tree
       - read
-      - readable-stream
+      - read-package-json
+      - read-package-json-fast
       - readdir-scoped-modules
-      - request
-      - retry
       - rimraf
-      - safe-buffer
       - semver
-      - sha
-      - slide
-      - sorted-object
-      - sorted-union-stream
       - ssri
-      - stringify-package
       - tar
       - text-table
       - tiny-relative-date
-      - uid-number
-      - umask
-      - unique-filename
-      - unpipe
-      - update-notifier
-      - uuid
-      - validate-npm-package-license
+      - treeverse
       - validate-npm-package-name
       - which
-      - worker-farm
       - write-file-atomic
 
   /nwsapi/2.2.0:
