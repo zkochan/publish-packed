@@ -13,7 +13,7 @@ specifiers:
   p-map-series: ^2.1.0
   package-preview: ^3.0.0
   read-pkg: ^5.2.0
-  rename-overwrite: ^3.0.0
+  rename-overwrite: ^4.0.0
   rimraf-then: ^1.0.1
   tape: ^5.0.1
   tape-await: ^0.1.2
@@ -29,7 +29,7 @@ dependencies:
   getopts: 2.2.5
   nm-prune: 4.0.0
   read-pkg: 5.2.0
-  rename-overwrite: 3.0.0
+  rename-overwrite: 4.0.0
   rimraf-then: 1.0.1
   write-pkg: 4.0.0
 
@@ -159,6 +159,11 @@ packages:
     resolution: {integrity: sha512-J9UEf6MkKugeq5sFhDfqPPGNy4dTSf3fVYK3Q2hGFQiKXvOw7hqovjz6PVOJRNMymBXb2fJuMPIXx1Br3kwD2Q==}
     engines: {node: '>= 8', npm: '>=5'}
     dev: true
+
+  /@zkochan/rimraf/2.1.0:
+    resolution: {integrity: sha512-a8yw+qEmQszHCD4ghIjZ3jbbQvjQAfFa7PBgAGRYK0YGoG8sHTe+VeoGuiy91ad7Ksvh3rFjxiPzBPRCVDCcGQ==}
+    engines: {node: '>=12.10'}
+    dev: false
 
   /JSONStream/1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -3297,12 +3302,11 @@ packages:
       es-abstract: 1.17.7
     dev: true
 
-  /rename-overwrite/3.0.0:
-    resolution: {integrity: sha512-/XB82wGDkV0bWNWu0PQgv+uuwsp/149HwF00/pRmJFPcX/9xLCvlUdbOjn3/OELh/mBveZ5MGknqGEnURxn5Xw==}
-    engines: {node: '>=10.12'}
+  /rename-overwrite/4.0.0:
+    resolution: {integrity: sha512-GZxPjarpxu2DGD6xHE8L4GdJhWz2+2i2x6N1I7VEof2p5M/x/LDNxNXA547k8xOpPmHnijXBE1ofmj7NDGP20g==}
+    engines: {node: '>=12.10'}
     dependencies:
-      graceful-fs: 4.2.4
-      rimraf: 3.0.2
+      '@zkochan/rimraf': 2.1.0
     dev: false
 
   /repeating/2.0.1:
@@ -3419,13 +3423,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.1.6
-
-  /rimraf/3.0.2:
-    resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
-    hasBin: true
-    dependencies:
-      glob: 7.1.6
-    dev: false
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
