@@ -29,11 +29,7 @@ export async function run (cwd: string, args: string[], opts: Options = defaultO
   if (options.npmClient === '') {
     throw new Error(`opts.npmClient cannot be an empty string`)
   }
-  let cliPath: string | undefined = getCliPath(options)
-
-  if (!cliPath) {
-    throw new Error(`Cannot find cli for "${npmClient}" package manager`)
-  }
+  let cliPath = getCliPath(options) ?? options.npmClient
 
   if (verbose) {
     console.log(`Using npmClient "${npmClient}" from ${cliPath}\nWith the following arguments: ${args}`)
