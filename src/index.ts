@@ -29,6 +29,10 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
       devDependencies: '__devDependencies',
     })
 
+    if (options.npmClient === 'pnpm') {
+      await fs.writeFile(path.join(pkgDir, 'pnpm-workspace.yaml'), '', 'utf8')
+    }
+
     await run(
       pkgDir,
       ['install', '--ignore-scripts', ...lockfileFlags],
@@ -43,6 +47,9 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
     await hideDeps(pkgDir)
   } catch (err) {
     await postpublish(pkgDir)
+    if (options.npmClient === 'pnpm') {
+      await fs.unlink(path.join(pkgDir, 'pnpm-workspace.yaml'))
+    }
     throw err
   }
 }
