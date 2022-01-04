@@ -10,7 +10,7 @@ specifiers:
   nm-prune: ^5.0.0
   npm: ^8.3.0
   npm-run-all: ^4.1.5
-  p-map-series: ^2.1.0
+  p-map-series: ^3.0.0
   package-preview: ^4.0.0
   read-pkg: ^5.2.0
   rename-overwrite: ^4.0.0
@@ -38,7 +38,7 @@ devDependencies:
   '@types/node': 13.13.52
   npm: 8.3.0
   npm-run-all: 4.1.5
-  p-map-series: 2.1.0
+  p-map-series: 3.0.0
   package-preview: 4.0.0
   tape: 5.4.0
   tape-await: 0.1.2_tape@5.4.0
@@ -2413,9 +2413,9 @@ packages:
     dependencies:
       p-limit: 2.3.0
 
-  /p-map-series/2.1.0:
-    resolution: {integrity: sha512-RpYIIK1zXSNEOdwxcfe7FdvGcs7+y5n8rifMhMNWvaxRNMPINJHF5GDeuVxWqnfrcHPSCnp7Oo5yNXHId9Av2Q==}
-    engines: {node: '>=8'}
+  /p-map-series/3.0.0:
+    resolution: {integrity: sha512-/oSZlzK3Chrlrx+LFkiuMzWi2k2aEfIP8V5LandUN3/XRhUlxM1R0Th/xM6SKgjTXnIbZR9GkexTLiar2nKUeg==}
+    engines: {node: '>=12'}
     dev: true
 
   /p-try/1.0.0:
