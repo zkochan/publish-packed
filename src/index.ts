@@ -30,7 +30,7 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
     })
 
     if (options.npmClient === 'pnpm') {
-      await fs.writeFile(path.join(pkgDir, 'pnpm-workspace.yaml'), '', 'utf8')
+      await fs.writeFile(path.join(pkgDir, 'pnpm-workspace.yaml'), 'packages: ["."]', 'utf8')
     }
 
     await run(
