@@ -47,10 +47,11 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
     await hideDeps(pkgDir)
   } catch (err) {
     await postpublish(pkgDir)
+    throw err
+  } finally {
     if (options.npmClient === 'pnpm') {
       await fs.unlink(path.join(pkgDir, 'pnpm-workspace.yaml'))
     }
-    throw err
   }
 }
 
