@@ -12,12 +12,12 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
   const { prune } = options
 
   const lockfileMap = {
-    yarn: '--no-lockfile',
-    pnpm: '--no-lockfile',
-    npm: '--no-package-lock'
+    yarn: ['--no-lockfile'],
+    pnpm: ['--no-lockfile', '--config.node-linker=hoisted'],
+    npm: ['--no-package-lock'],
   }
 
-  const lockfileFlag = lockfileMap[options.npmClient]
+  const lockfileFlags = lockfileMap[options.npmClient]
   const modules = path.join(pkgDir, 'node_modules')
   const tmpModules = path.join(pkgDir, 'tmp_node_modules')
   let publishedModules: string | null = null
@@ -29,9 +29,13 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
       devDependencies: '__devDependencies',
     })
 
+    if (options.npmClient === 'pnpm') {
+      await fs.writeFile(path.join(pkgDir, 'pnpm-workspace.yaml'), 'packages: ["."]', 'utf8')
+    }
+
     await run(
       pkgDir,
-      ['install', '--ignore-scripts', lockfileFlag],
+      ['install', '--ignore-scripts', ...lockfileFlags],
       options
     )
 
@@ -44,6 +48,10 @@ export async function prepublishOnly (pkgDir: string, opts: Options = defaultOpt
   } catch (err) {
     await postpublish(pkgDir)
     throw err
+  } finally {
+    if (options.npmClient === 'pnpm') {
+      await fs.unlink(path.join(pkgDir, 'pnpm-workspace.yaml'))
+    }
   }
 }
 
