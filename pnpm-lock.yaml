@@ -35,8 +35,8 @@ dependencies:
 
 devDependencies:
   '@types/fs-extra':
-    specifier: ^9.0.13
-    version: 9.0.13
+    specifier: ^11.0.0
+    version: 11.0.4
   '@types/node':
     specifier: ^13.13.31
     version: 13.13.52
@@ -122,10 +122,17 @@ packages:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
     dev: true
 
-  /@types/fs-extra@9.0.13:
-    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+  /@types/fs-extra@11.0.4:
+    resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
     dependencies:
-      '@types/node': 17.0.7
+      '@types/jsonfile': 6.1.4
+      '@types/node': 13.13.52
+    dev: true
+
+  /@types/jsonfile@6.1.4:
+    resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
+    dependencies:
+      '@types/node': 13.13.52
     dev: true
 
   /@types/minimist@1.2.2:
@@ -135,17 +142,13 @@ packages:
     resolution: {integrity: sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==}
     dev: true
 
-  /@types/node@17.0.7:
-    resolution: {integrity: sha512-1QUk+WAUD4t8iR+Oj+UgI8oJa6yyxaB8a8pHaC8uqM6RrS1qbL7bf3Pwl5rHv0psm2CuDErgho6v5N+G+5fwtQ==}
-    dev: true
-
   /@types/normalize-package-data@2.4.0:
     resolution: {integrity: sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==}
 
   /@types/ssri@6.0.3:
     resolution: {integrity: sha512-mYh0G0jytNFBi/tT91pg7wKtcaoy5G07YBDkR4Sq9Z+2fX1ZJgRGNKDnaRWQQuNDo9r9wJ22J6oqnElZmV+qLQ==}
     dependencies:
-      '@types/node': 17.0.7
+      '@types/node': 13.13.52
     dev: true
 
   /@verdaccio/commons-api@10.1.0:
@@ -1821,7 +1824,7 @@ packages:
   /jsonfile@4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.11
     dev: false
 
   /jsonfile@6.1.0:
@@ -1996,7 +1999,7 @@ packages:
     resolution: {integrity: sha512-2+x8esE/Wb9SQ1F9IHaYWfsC9FIecLOPrK4g17FGEayjUWH172H6nwicRovGvSE2CPZouc2MCIqCI7h9d+GftQ==}
     engines: {node: '>=4'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.11
       is-promise: 2.2.2
       lodash: 4.17.21
       pify: 3.0.0
@@ -3163,7 +3166,7 @@ packages:
   /steno@0.4.4:
     resolution: {integrity: sha1-BxEFvfwobmYVwEA8J+nXtdy4Vcs=}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.11
     dev: true
 
   /stream-shift@1.0.1:
