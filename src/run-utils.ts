@@ -1,12 +1,8 @@
 import fs = require('fs')
-import path = require('path')
-import mod = require('module')
+import which = require('@pnpm/which')
 
 // @ts-ignore
 import execa = require('execa')
-
-// @ts-ignore
-import allModulePaths = require('all-module-paths')
 
 export type Options = { paths?: string[], dest?: string } & {
   tag?: string,
@@ -45,17 +41,18 @@ export async function run (cwd: string, args: string[], opts: Options = defaultO
 
 
 export function getCliPath (opts: Options) {
-  // We need, strictly, the `process.cwd()` here
-  // @ts-ignore
-  const modPaths = mod._nodeModulePaths(process.cwd())
-
   const options = { ...defaultOptions, ...opts }
-  const { globalModules: { binaries } } = allModulePaths({
-    paths: options.paths || modPaths
-  })
+  const { npmClient } = options
 
-  return binaries
-    .reverse()
-    .map((fp: string) => path.join(fp, options.npmClient))
-    .find((fp: string) => fs.existsSync(fp))
+  // Try to find the CLI using @pnpm/which
+  try {
+    const result = which.sync(npmClient, { pathExt: undefined })
+    if (result) {
+      return result
+    }
+  } catch (err) {
+    // Command not found
+  }
+
+  return undefined
 }

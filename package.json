@@ -10,7 +10,7 @@
   "bin": "lib/cli.js",
   "preferGlobal": true,
   "engines": {
-    "node": ">=12.10"
+    "node": ">=20.19"
   },
   "scripts": {
     "tsc": "tsc",
@@ -31,28 +31,28 @@
   },
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
-    "all-module-paths": "^0.10.7",
+    "@pnpm/which": "^3.0.1",
     "execa": "^5.0.0",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.2",
     "getopts": "^2.2.5",
     "nm-prune": "^5.0.0",
     "read-pkg": "^5.2.0",
-    "rename-overwrite": "^5.0.0",
+    "rename-overwrite": "^6.0.3",
     "rimraf-then": "^1.0.1",
     "write-pkg": "^4.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@types/node": "^13.13.31",
-    "npm": "^8.3.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.10.1",
+    "npm": "^11.6.2",
     "npm-run-all": "^4.1.5",
     "p-map-series": "^2.1.0",
     "package-preview": "^4.0.0",
     "tape": "^5.4.0",
     "tape-await": "^0.1.2",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.4",
-    "verdaccio": "^5.4.0"
+    "typescript": "^5.9.3",
+    "verdaccio": "^6.2.1"
   },
   "packageManager": "pnpm@9.15.9"
 }
