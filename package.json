@@ -32,7 +32,7 @@
   "homepage": "https://github.com/zkochan/publish-packed#readme",
   "dependencies": {
     "@pnpm/which": "^3.0.1",
-    "execa": "^5.0.0",
+    "execa": "^9.0.0",
     "fs-extra": "^11.3.2",
     "getopts": "^2.2.5",
     "nm-prune": "^5.0.0",
