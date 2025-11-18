@@ -54,5 +54,5 @@
     "typescript": "^5.9.3",
     "verdaccio": "^6.2.1"
   },
-  "packageManager": "pnpm@9.15.9"
+  "packageManager": "pnpm@10.0.0"
 }
