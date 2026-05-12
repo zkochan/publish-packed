@@ -51,7 +51,7 @@
     "tape": "^5.4.0",
     "tape-await": "^0.1.2",
     "ts-node": "^10.4.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.0",
     "verdaccio": "^6.2.1"
   },
   "packageManager": "pnpm@9.15.9"
