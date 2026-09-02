@@ -36,7 +36,7 @@
     "fs-extra": "^11.3.2",
     "getopts": "^2.2.5",
     "nm-prune": "^5.0.0",
-    "read-pkg": "^5.2.0",
+    "read-pkg": "^10.0.0",
     "rename-overwrite": "^6.0.3",
     "rimraf-then": "^1.0.1",
     "write-pkg": "^4.0.0"
